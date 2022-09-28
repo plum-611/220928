@@ -1,0 +1,213 @@
+	<!DOCTYPE html>
+	<html>
+	<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>3주차 과제</title>
+
+	<style type="text/css">
+		body {margin: 0;}
+		
+
+		.w-btn {
+		    position: relative;
+		    border: none;
+		    display: inline-block;
+		    padding: 15px 30px;
+		    border-radius: 15px;
+		    font-family: "paybooc-Light", sans-serif;
+		    box-shadow: 0 15px 20px rgba(0, 0, 0, 0.1);
+		    text-decoration: none;
+		    font-weight: 600;
+		    transition: 0.25s;
+		}
+		.w-btn-gra1 {
+		    background: linear-gradient(-45deg, #33ccff 0%, #ff99cc 100%);
+		    color: white;
+		}
+		.w-btn-gra-anim {
+		    background-size: 400% 400%;
+		    animation: gradient1 5s ease infinite;
+		}
+
+		@keyframes gradient1 {
+		    0% {
+		        background-position: 0% 50%;
+		    }
+		    50% {
+		        background-position: 100% 50%;
+		    }
+		    100% {
+		        background-position: 0% 50%;
+		    }
+		}
+		.w-btn-green {
+		    background-color: #77af9c;
+		    color: #d7fff1;
+		}
+		.w-btn-indigo {
+	    background-color: aliceblue;
+	    color: #1e6b7b;
+	}
+
+
+	
+		@keyframes ring {
+		    0% {
+		        width: 30px;
+		        height: 30px;
+		        opacity: 1;
+		    }
+		    100% {
+		        width: 300px;
+		        height: 300px;
+		        opacity: 0;
+		    }
+		}
+
+		.w-btn-neon2 {
+		    position: relative;
+		    border: none;
+		    min-width: 100px;
+		    min-height: 40px;
+		    background: linear-gradient(
+		        90deg,
+		        rgba(129, 230, 217, 1) 0%,
+		        rgba(79, 209, 197, 1) 100%
+		    );
+		    border-radius: 1000px;
+		    color: darkslategray;
+		    cursor: pointer;
+		    box-shadow: 12px 12px 24px rgba(79, 209, 197, 0.64);
+		    font-weight: 700;
+		    transition: 0.3s;
+		}
+
+		.w-btn-neon2:hover {
+		    transform: scale(1.2);
+		}
+
+		.w-btn-neon2:hover::after {
+		    content: "";
+		    width: 30px;
+		    height: 30px;
+		    border-radius: 100%;
+		    border: 6px solid #00ffcb;
+		    position: absolute;
+		    z-index: -1;
+		    top: 50%;
+		    left: 50%;
+		    transform: translate(-50%, -50%);
+		    animation: ring 1.5s infinite;
+		}
+
+		body{background-color: rgb(246, 246, 246);}
+
+
+	</style>
+	</head>
+	<body>
+
+
+	<header>
+		<form action="" name="frm">
+		
+			<div align="center">
+			<h1>제한 시간내 버튼을 많이 눌러보세요!</h1><br>
+
+			<h2 id="counta">0</h2>
+			
+			<span id="countdown" style="color: grey;" >타이머를 설정해주세요</span>
+			<br><br>
+			<select id="selid" name="myChoice">
+				<option value="180" class="line">타이머 설정(기본:3분)</option>
+			
+				<option value="120">2분</option>
+				<option value="60">1분</option>
+				<option value="30">30초</option>
+			</select>
+			<br><br>
+			<input type="button" class="w-btn-neon2" value="시작" onclick="start()">
+			<br><br>
+			
+			
+			
+			<input type="button"  class="w-btn w-btn-indigo"  value="창 닫기" onclick='window.close()'>
+			<br><br>
+
+			<img src="b2.jpg" id="press"></div>
+	
+		</form>
+	</header>
+
+	<section> 
+		
+	
+	</section>
+
+
+	<script type="text/javascript">
+	
+	let count = 0;
+	let time = 0;
+	let choice = 0;
+	
+	function start() {
+		
+		clearInterval(time);
+	 	choice = document.frm.myChoice.selectedIndex;
+
+	 	count = parseInt(document.frm.myChoice.options[choice].value);
+
+		time = setInterval("myTimer()",1000); 
+		
+	}
+
+	function myTimer() {
+		count = count - 1; 
+		
+		document.getElementById("countdown").innerHTML
+			= "완료까지 <b>" + count +"</b>초 남았습니다.";
+		if(count == 0) { 
+			clearInterval(time);	
+			alert("시간이 완료되었습니다. 총" + countt + "번 눌렀습니다")
+		}
+	}
+
+
+		var toggle = "off";
+
+		press.onclick = function(){
+
+
+			console.log("click!!");
+			countt = countt + 1;
+			document.getElementById("counta").innerText = countt;
+
+
+			if (toggle == "off") {
+				press.setAttribute("src","b2.jpg");
+				toggle = "on";
+			
+			} else {
+				press.setAttribute("src","b1.jpg");
+				toggle = "off";
+			
+			} {
+
+			}
+
+		}
+
+
+		var countt = 0;
+		
+
+				
+
+
+
+	</script>
+	
+	</body>
+	</html>
